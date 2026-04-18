@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+import hashlib
 
 from .models import Choice, Question, Comment
 
@@ -48,7 +49,6 @@ def add_comment(request, question_id):
     
     if request.method == "POST":
         text = request.POST.get("text")
-        user= request.user
         Comment.objects.create(question=question, text=text, user=request.user)
         return HttpResponseRedirect(reverse('polls:detail', args=(question.id,)))
 
@@ -65,11 +65,11 @@ def search_questions(request):
 @login_required
 def delete_comment(request, comment_id):
     comment = Comment.objects.get(id=comment_id)
+    comment.delete()
     #Fix
     # if comment.user==request.user:
     #     comment.delete()
     # else:
     #     return HttpResponse("Forbidden". status=403)
-    comment.delete()
     return HttpResponse("Deleted")
 # Create your views here.
