@@ -8,6 +8,10 @@
 
 {% for comment in question.comment_set.all %}
     <p>{{ comment.text }}</p>
+    <a href ="{% url 'polls:delete_comment' comment.id %}"
+    style="color: red;">
+    Delete comment
+    </a>
 {% endfor %}
 
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>

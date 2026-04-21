@@ -71,5 +71,5 @@ def delete_comment(request, comment_id):
     #     comment.delete()
     # else:
     #     return HttpResponse("Forbidden". status=403)
-    return HttpResponse("Deleted")
+    return HttpResponseRedirect(reverse('polls:index'))
 # Create your views here.
