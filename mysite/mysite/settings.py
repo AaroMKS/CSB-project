@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-ja7ko-^4p5dy&he+7%-nnf2_0y)c@sodl@z-1wufl#1$ibohrp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #Fix:
-#DEBUG = False
+# DEBUG = False
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
 LOGIN_REDIRECT_URL = '/polls/'
 LOGOUT_REDIRECT_URL = '/polls/'
@@ -88,20 +89,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = []
 #Fix:
-#AUTH_PASSWORD_VALIDATORS = [
-    #{
-    #    'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    #},
-    #{
-    #    'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    #},
-    #{
-    #    'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    #},
-    #{
-    #    'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    #},
-#]
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+#     },
+# ]
 
 
 # Internationalization
@@ -129,4 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PASSWORD_HASHERS = ['django.contrib.auth.hashers.MD5PasswordHasher']
 # Fix:
-# PASSWORD_HASHERS = ['django.contrib.auth.hashers.PBKDF2PasswordHasher]
+# PASSWORD_HASHERS = ['django.contrib.auth.hashers.PBKDF2PasswordHasher']

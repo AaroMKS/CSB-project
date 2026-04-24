@@ -58,18 +58,19 @@ def search_questions(request):
     sql = f"SELECT * FROM polls_question WHERE question_text LIKE '%{query}%'"
     questions = Question.objects.raw(sql)
     #Fix:
-    # sql = "SELECT * FROM polls_question WHERE question_text LIKE %s"
-    # questions = Question.objects.raw(sql, [f"%{query}%"]
+    #sql = "SELECT * FROM polls_question WHERE question_text LIKE %s"
+    #questions = Question.objects.raw(sql, [f"%{query}%"])
     return HttpResponse(questions)
 
 @login_required
 def delete_comment(request, comment_id):
     comment = Comment.objects.get(id=comment_id)
-    comment.delete()
+    #comment.delete()
     #Fix
-    # if comment.user==request.user:
-    #     comment.delete()
-    # else:
-    #     return HttpResponse("Forbidden". status=403)
-    return HttpResponseRedirect(reverse('polls:index'))
+    # if comment.user.id==request.user.id:
+    #    comment.delete()
+    #    return HttpResponse(f'Deleted comment {comment}')
+    #else:
+    #    return HttpResponse("Forbidden", status=403)
+    
 # Create your views here.
