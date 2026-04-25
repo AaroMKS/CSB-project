@@ -65,7 +65,8 @@ def search_questions(request):
 @login_required
 def delete_comment(request, comment_id):
     comment = Comment.objects.get(id=comment_id)
-    #comment.delete()
+    comment.delete()
+    return HttpResponse(f'Deleted comment {comment}')
     #Fix
     # if comment.user.id==request.user.id:
     #    comment.delete()
